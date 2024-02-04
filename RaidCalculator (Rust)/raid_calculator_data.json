@@ -1,0 +1,176 @@
+{
+    "structures": [
+        {
+            "name": "Sheet Metal Door",
+            "hp": 250,
+            "required_explosives": {
+                "C4": {
+                    "quantity": 1
+                },
+                "Explosive 5.56 Rifle Ammo": {
+                    "quantity": 63
+                },
+                "Satchel Charge": {
+                    "quantity": 4
+                },
+                "Rocket": {
+                    "quantity": 2
+                }
+            },
+            "damage_per_explosive": {
+                "C4": 250.0,
+                "Explosive 5.56 Rifle Ammo": 4.0,
+                "Satchel Charge": 70.0,
+                "Rocket": 220.0
+            }
+        },
+        {
+            "name": "Wooden Building",
+            "hp": 250,
+            "required_explosives": {
+                "C4": {
+                    "quantity": 1
+                },
+                "Explosive 5.56 Rifle Ammo": {
+                    "quantity": 49
+                },
+                "Satchel Charge": {
+                    "quantity": 3
+                },
+                "Rocket": {
+                    "quantity": 2
+                }
+            },
+            "damage_per_explosive": {
+                "C4": 250.0,
+                "Explosive 5.56 Rifle Ammo": 5.2,
+                "Satchel Charge": 91.5,
+                "Rocket": 247.0
+            }
+        },
+        {
+            "name": "Stone Building",
+            "hp": 500,
+            "required_explosives": {
+                "C4": {
+                    "quantity": 2
+                },
+                "Explosive 5.56 Rifle Ammo": {
+                    "quantity": 209
+                },
+                "Satchel Charge": {
+                    "quantity": 10
+                },
+                "Rocket": {
+                    "quantity": 4
+                }
+            },
+            "damage_per_explosive": {
+                "C4": 257.0,
+                "Explosive 5.56 Rifle Ammo": 2.4,
+                "Satchel Charge": 51.5,
+                "Rocket": 137.5
+            }
+        },
+        {
+            "name": "Sheet Metal Building",
+            "hp": 1000,
+            "required_explosives": {
+                "C4": {
+                    "quantity": 4
+                },
+                "Explosive 5.56 Rifle Ammo": {
+                    "quantity": 417
+                },
+                "Satchel Charge": {
+                    "quantity": 23
+                },
+                "Rocket": {
+                    "quantity": 8
+                }
+            },
+            "damage_per_explosive": {
+                "C4": 275.0,
+                "Explosive 5.56 Rifle Ammo": 2.4,
+                "Satchel Charge": 43.5,
+                "Rocket": 137.5
+            }
+        },
+        {
+            "name": "Armored Building",
+            "hp": 2000,
+            "required_explosives": {
+                "C4": {
+                    "quantity": 8
+                },
+                "Explosive 5.56 Rifle Ammo": {
+                    "quantity": 834
+                },
+                "Satchel Charge": {
+                    "quantity": 46
+                },
+                "Rocket": {
+                    "quantity": 15
+                }
+            },
+            "damage_per_explosive": {
+                "C4": 275.0,
+                "Explosive 5.56 Rifle Ammo": 2.4,
+                "Satchel Charge": 43.5,
+                "Rocket": 137.5
+            }
+        }
+    ],
+    "explosives": [
+        {
+            "name": "C4",
+            "materials_cost": {
+                "cloth": 20,
+                "tech trash": 2,
+                "sulfur": 2200,
+                "metal fragments": 200,
+                "charcoal": 3000,
+                "animal fat": 45
+            },
+            "crafting_time": 30
+        },
+        {
+            "name": "Explosive 5.56 Rifle Ammo",
+            "materials_cost": {
+                "metal fragments": 10,
+                "sulfur": 50,
+                "charcoal": 60
+            },
+            "crafting_time": 3
+        },
+        {
+            "name": "Satchel Charge",
+            "materials_cost": {
+                "rope": 1,
+                "metal fragments": 80,
+                "cloth": 10,
+                "charcoal": 720,
+                "sulfur": 480
+            },
+            "crafting_time": 5
+        },
+        {
+            "name": "Rocket",
+            "materials_cost": {
+                "HQ": 4,
+                "Scrap": 40,
+                "charcoal": 1950,
+                "sulfur": 1400,
+                "metal fragments": 100,
+                "animal fat": 24,
+                "cloth": 8
+            },
+            "crafting_time": 10
+        }
+    ],
+    "config": {
+        "optimize_for": "sulfur",
+        "exclude_explosives": [],
+        "max_explosives": {}
+    }
+}
