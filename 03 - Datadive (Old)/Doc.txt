@@ -1,0 +1,56 @@
+Cargando el archivo CSV en un DataFrame con pandas.
+Definiendo un tamaño de lote (batch_sz).
+Inicializando y ajustando un tokenizador para las columnas 'Entrada' y 'Salida'.
+Tokenizando las columnas 'Entrada' y 'Salida'.
+Añadiendo padding (relleno) a las secuencias tokenizadas para que todas tengan la misma longitud.
+Dividiendo el conjunto de datos en entrenamiento, validación y prueba usando train_test_split.
+
+
+
+Tamaño del vocabulario: Estableces el tamaño del vocabulario usando el tokenizador que ajustaste anteriormente.
+
+Codificador (Encoder): Define una red neuronal recurrente con capas de embedding y GRU. Aquí está lo que cada parte hace:
+
+Embedding: Esta capa convierte los índices de palabras en vectores densos de un tamaño fijo, embedding_dim, que es más adecuado para la red neuronal. Estos vectores densos son aprendidos durante el entrenamiento.
+GRU: Esta es una variante de las redes neuronales recurrentes (RNN). Es responsable de mantener una memoria de las secuencias que se le pasan.
+Decodificador (Decoder): También define una RNN, similar al codificador. Sin embargo, además tiene una capa densa al final que transformará su salida a la forma del vocabulario, esencialmente prediciendo la próxima palabra en la secuencia de salida.
+
+En este fragmento, has definido las arquitecturas del codificador y decodificador y has instanciado ambos modelos.
+
+Está todo en orden hasta ahora. Puedes continuar con el siguiente fragmento de código.
+
+quí hay una descomposición de lo que está pasando:
+
+Optimizador y Función de Pérdida:
+
+Optimizador: Utilizas el optimizador Adam, que es una variante del método de descenso de gradiente estocástico. Su principal ventaja es que adapta la tasa de aprendizaje durante el entrenamiento.
+Función de Pérdida: Utilizas la entropía cruzada categórica dispersa. Esta función de pérdida es adecuada para problemas de clasificación donde cada entrada puede pertenecer a una sola categoría. En este caso, estamos tratando de predecir la siguiente palabra, lo que es esencialmente un problema de clasificación.
+Función de Entrenamiento train_step: Esta función lleva a cabo un paso de entrenamiento utilizando el codificador y el decodificador que definiste anteriormente:
+
+Usa tf.GradientTape() para registrar operaciones para las que se calcularán gradientes.
+El codificador procesa la entrada y devuelve su salida y su estado oculto, que se pasa al decodificador.
+El decodificador procesa la salida del codificador un paso a la vez.
+El decodificador recibe un token <start> como entrada inicial y luego usa la palabra real del target en el paso t-1 como su siguiente entrada.
+Calcula la pérdida entre las predicciones y los valores reales.
+Finalmente, utiliza el optimizador para actualizar los pesos de la red basándose en la pérdida.
+Bucle de Entrenamiento: Para cada época, este bucle pasa por el conjunto de datos completo y actualiza los pesos del modelo. Después de procesar cada lote de datos, imprime la pérdida del lote. Y después de cada época, te muestra cuánto tiempo tomó la época y la pérdida promedio de la época.
+
+
+
+Evaluación
+Una vez que el modelo ha sido entrenado, querrás evaluar su desempeño. Aquí hay un procedimiento básico para hacerlo:
+
+Preparar la entrada para la evaluación: Toma una oración de entrada (no vista previamente por el modelo durante el entrenamiento) y conviértela en tokens, y luego a una secuencia numérica usando el tokenizer.
+
+Decodificar la salida: Pasa la secuencia numérica al encoder para obtener una representación codificada. Luego, alimenta esta representación al decoder paso a paso para obtener la secuencia de salida. Después de cada paso, toma la palabra con la mayor probabilidad como la palabra predicha y úsala como entrada para el siguiente paso en el decoder.
+
+Conversión de la secuencia de salida a texto: Una vez que obtengas la secuencia numérica de salida del decoder, conviértela de nuevo a texto usando el tokenizer.
+
+Comparación: Compara la salida del modelo con la salida real (si la tienes) para evaluar qué tan bien ha funcionado el modelo.
+
+
+
+Creando el tf.data.Dataset:
+Convertiremos las frases de entrada y salida en tensores usando el tokenizador.
+Definiremos el tamaño del lote y el tamaño del buffer de mezcla (para aleatorizar nuestros datos).
+Crearemos el objeto tf.data.Dataset.

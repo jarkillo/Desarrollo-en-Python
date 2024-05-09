@@ -1,0 +1,21 @@
+Resumen del Código Actual
+Importación de Librerías: Se importan las librerías necesarias como pandas, numpy, matplotlib, seaborn, sklearn, fpdf y requests.
+
+Configuración de Visualizaciones: Se establece un estilo para las visualizaciones de seaborn.
+
+Función para Eliminar Archivos Temporales: Se define una función para eliminar archivos generados temporalmente durante la ejecución del programa.
+
+Carga de Datos desde la API: Se implementa una función para cargar datos desde una API externa, seleccionando un dataset y descargándolo.
+
+Funciones de Análisis: Incluyen análisis estadístico descriptivo, PCA, análisis de clústeres, y la generación de gráficos correspondientes.
+
+Generación de Informes en PDF: Se utiliza la clase FPDF para crear un informe en PDF que incluye los análisis y gráficos.
+
+Menú Principal y Flujo del Programa: Se implementa un menú interactivo para cargar datos, realizar análisis y generar informes.
+
+Mejoras Propuestas
+Comentarios y Explicaciones para Análisis y Gráficos: Mejorar la clase PDF para incluir métodos que permitan añadir comentarios y explicaciones detalladas junto a cada análisis y gráfico.
+
+Sección de Resumen Ejecutivo o Conclusión: Añadir una sección al final del informe que resuma los hallazgos y proporcione una visión general del análisis.
+
+Mejora en la Calidad Visual de los Gráficos: Asegurarse de que todos los gráficos generados tengan títulos, leyendas y etiquetas claras.
